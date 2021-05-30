@@ -54,8 +54,8 @@ app.use(function(err, req, res, next) {
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
-mongoDB = "mongodb+srv://daneM:Pastroo12@cluster0.bcjsz.mongodb.net/LocalLibrary?retryWrites=true&w=majority";
+var dev_db_url =  "mongodb+srv://daneM:Pastroo12@cluster0.bcjsz.mongodb.net/LocalLibrary?retryWrites=true&w=majority";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Get the default connection
